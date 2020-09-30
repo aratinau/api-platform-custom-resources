@@ -1,3 +1,9 @@
+# NOTES
+
+`bin/console debug:autowiring Persister`
+
+----------
+
 # API Platform Tutorial
 
 Well hi there! This repository holds the code and script
@@ -114,6 +120,10 @@ yarn encore dev --watch
 ```
 
 Have fun!
+
+## Tests
+
+`symfony php bin/phpunit`
 
 ## Have Ideas, Feedback or an Issue?
 
