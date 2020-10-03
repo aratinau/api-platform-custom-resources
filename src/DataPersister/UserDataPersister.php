@@ -9,12 +9,12 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class UserDataPersister implements DataPersisterInterface
 {
-    private $entityManager;
+    private $decoratedDataPersister;
     private $userPasswordEncoder;
 
-    public function __construct(EntityManagerInterface $entityManager, UserPasswordEncoderInterface $userPasswordEncoder)
+    public function __construct(DataPersisterInterface $decoratedDataPersister, UserPasswordEncoderInterface $userPasswordEncoder)
     {
-        $this->entityManager = $entityManager;
+        $this->decoratedDataPersister = $decoratedDataPersister;
         $this->userPasswordEncoder = $userPasswordEncoder;
     }
 
@@ -22,6 +22,15 @@ class UserDataPersister implements DataPersisterInterface
     {
         return $data instanceof User;
     }
+
+    /*
+     * note
+     * Ce qu'on cherche à injecter dans notre DataPersister
+     * ApiPlatform\Core\Bridge\Doctrine\Common\DataPersister
+     *
+     * php bin/console debug:container api_platform.serializer.context_builder --show-arguments
+     *
+     */
 
     /**
      * @param User $data
@@ -34,14 +43,11 @@ class UserDataPersister implements DataPersisterInterface
             );
             $data->eraseCredentials();
         }
-
-        $this->entityManager->persist($data);
-        $this->entityManager->flush();
+        return $this->decoratedDataPersister->persist($data);
     }
 
     public function remove($data)
     {
-        $this->entityManager->remove($data);
-        $this->entityManager->flush();
+        $this->decoratedDataPersister->remove($data);
     }
 }

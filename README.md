@@ -2,6 +2,14 @@
 
 `bin/console debug:autowiring Persister`
 
+`bin/console debug:container debug.api_platform.data_persister`
+
+`bin/console debug:container api_platform`
+
+#### Taking Action Before/After Save - Data Persister
+
+But what if you need to do something right before or after an item is saved to the database? Well, you could use a Doctrine listener for that... but if you want that code to only run in the context of your API, how can we? The answer is to create a custom data persister. For example, we created UserDataPersister because we needed to encode the plain password and set it onto the password field before saving:
+
 ----------
 
 # API Platform Tutorial
