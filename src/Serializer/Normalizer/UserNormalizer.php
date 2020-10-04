@@ -36,7 +36,8 @@ class UserNormalizer implements ContextAwareNormalizerInterface, CacheableSuppor
 
         $data = $this->normalizer->normalize($object, $format, $context);
 
-        $data['isMe'] = $isOwner;
+        // Comment ajouter une data dans le json sur GET /users
+        // $data['isMe'] = $isOwner;
 
         return $data;
     }
