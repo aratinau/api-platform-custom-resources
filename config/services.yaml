@@ -43,3 +43,7 @@ services:
     App\DataPersister\UserDataPersister:
         bind:
             $decoratedDataPersister: '@api_platform.doctrine.orm.data_persister'
+
+    App\DataPersister\CheeseListingDataPersister:
+        bind:
+            $decoratedDataPersister: '@api_platform.doctrine.orm.data_persister'
