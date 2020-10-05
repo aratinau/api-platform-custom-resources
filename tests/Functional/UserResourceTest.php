@@ -48,13 +48,17 @@ class UserResourceTest extends CustomApiTestCase
     public function testGetUser()
     {
         $client = self::createClient();
-        $user = UserFactory::new()->create(['phoneNumber' => '555.123.4567']);
+        $user = UserFactory::new()->create([
+            'phoneNumber' => '555.123.4567',
+            'username' => 'cheesehead'
+        ]);
         $authenticatedUser = UserFactory::new()->create();
         $this->logIn($client, $authenticatedUser);
 
         $client->request('GET', '/api/users/'.$user->getId());
         $this->assertJsonContains([
             'username' => $user->getUsername(),
+            'isMvp' => true
         ]);
 
         $data = $client->getResponse()->toArray();
