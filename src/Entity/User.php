@@ -98,7 +98,7 @@ class User implements UserInterface
      *
      * @Groups({"user:read"})
      */
-    private $isMe;
+    private $isMe = false;
 
     public function __construct()
     {

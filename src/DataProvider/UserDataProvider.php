@@ -35,7 +35,8 @@ class UserDataProvider implements ContextAwareCollectionDataProviderInterface, R
 
         $currentUser = $this->security->getUser();
         foreach ($users as $user) {
-            $user->setIsMe($currentUser === $user);
+            // now handle in a listener
+            // $user->setIsMe($currentUser === $user);
         }
 
         return $users;
@@ -50,7 +51,8 @@ class UserDataProvider implements ContextAwareCollectionDataProviderInterface, R
             return null;
         }
 
-        $item->setIsMe($this->security->getUser() === $item);
+        // now handle in a listener
+        // $item->setIsMe($this->security->getUser() === $item);
 
         return $item;
     }

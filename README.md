@@ -10,6 +10,12 @@
 
 But what if you need to do something right before or after an item is saved to the database? Well, you could use a Doctrine listener for that... but if you want that code to only run in the context of your API, how can we? The answer is to create a custom data persister. For example, we created UserDataPersister because we needed to encode the plain password and set it onto the password field before saving:
 
+#### Custom fields
+
+- create a totally custom API resource class that's not an entity
+- create an output DTO
+- add a non-persisted field to your entity.
+
 ----------
 
 # API Platform Tutorial
