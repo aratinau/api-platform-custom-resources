@@ -36,9 +36,29 @@ class DailyStats
     /**
      * The 5 most popular cheese listings from this date!
      *
+     * @var array<CheeseListing>|CheeseListing[]
      * @Groups({"daily-stats:read"})
      */
     public $mostPopularListings;
+
+    /* NOTE
+     * @var array<CheeseListing>
+     *
+        mostPopularListings
+            @id	"/api/cheeses/1"
+            @type	"cheese"
+
+            @id	"/api/cheeses/2"
+            @type	"cheese"
+
+            ...
+        TO
+        mostPopularListings
+            "/api/cheeses/1"
+            "/api/cheeses/2"
+            ...
+     *
+     * */
 
     /**
      * @param array|CheeseListing[] $mostPopularListings
