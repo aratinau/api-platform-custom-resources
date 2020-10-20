@@ -12,9 +12,11 @@ class DailyStatsProvider implements CollectionDataProviderInterface, RestrictedD
 {
     public function getCollection(string $resourceClass, string $operationName = null)
     {
-        $stats = new DailyStats();
-        $stats->date = new \DateTime();
-        $stats->totalVisitors = 100;
+        $stats = new DailyStats(
+            new \DateTime(),
+            1000,
+            []
+        );
 
         return [$stats];
     }
