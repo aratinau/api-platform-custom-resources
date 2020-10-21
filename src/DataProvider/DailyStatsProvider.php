@@ -21,7 +21,7 @@ class DailyStatsProvider implements CollectionDataProviderInterface, ItemDataPro
 
     public function getCollection(string $resourceClass, string $operationName = null)
     {
-        return $this->statsHelper->fetchMany();
+        return new DailyStatsPaginator($this->statsHelper);
     }
 
     public function getItem(string $resourceClass, $id, string $operationName = null, array $context = [])
@@ -33,5 +33,4 @@ class DailyStatsProvider implements CollectionDataProviderInterface, ItemDataPro
     {
         return $resourceClass === DailyStats::class;
     }
-
 }
