@@ -10,6 +10,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 /**
  * @ApiResource(
  *     normalizationContext={"groups"={"daily-stats:read"}},
+ *     paginationItemsPerPage=7,
  *     itemOperations={
  *          "get"
  *     },
