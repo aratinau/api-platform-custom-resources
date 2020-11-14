@@ -53,7 +53,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * })
  * @ApiFilter(RangeFilter::class, properties={"price"})
  * @ApiFilter(PropertyFilter::class)
- * @ApiFilter(CheeseSearchFilter::class)
+ * @ApiFilter(CheeseSearchFilter::class, arguments={"useLike"=true})
  * @ORM\Entity(repositoryClass="App\Repository\CheeseListingRepository")
  * @ORM\EntityListeners({"App\Doctrine\CheeseListingSetOwnerListener"})
  * @ValidIsPublished()
