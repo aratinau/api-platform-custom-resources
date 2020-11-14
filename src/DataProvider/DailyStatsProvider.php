@@ -32,11 +32,12 @@ class DailyStatsProvider implements ContextAwareCollectionDataProviderInterface,
             $page,
             $limit
         );
+
+        $fromDate = $context[DailyStatsDateFilter::FROM_FILTER_CONTEXT] ?? null;
         if (!$fromDate) {
             throw new BadRequestHttpException('Invalid "from" date format');
         }
 
-        $fromDate = $context[DailyStatsDateFilter::FROM_FILTER_CONTEXT] ?? null;
         if ($fromDate) {
             $paginator->setFromDate($fromDate);
         }
