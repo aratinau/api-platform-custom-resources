@@ -160,7 +160,7 @@ class CheeseListingResourceTest extends CustomApiTestCase
         $this->assertJsonContains(['hydra:member' => [
             0 => [
                 '@id' => '/api/cheeses/' . $cheeseListing2->getId(),
-                '@type' => 'cheese',
+                // '@type' => 'cheese',
                 'title' => 'cheese2',
                 'description' => 'cheese',
                 'price' => 1000,
