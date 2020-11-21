@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiProperty;
 use App\Doctrine\UserSetIsMvpListener;
 use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Annotation\ApiResource;
@@ -208,6 +209,7 @@ class User implements UserInterface
     }
 
     /**
+     * @ApiProperty(readableLink=true)
      * @Groups({"user:read"})
      * @SerializedName("cheeseListings")
      * @return Collection<CheeseListing>

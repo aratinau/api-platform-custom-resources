@@ -16,6 +16,26 @@ But what if you need to do something right before or after an item is saved to t
 - create an output DTO
 - add a non-persisted field to your entity.
 
+`* @ApiProperty(readableLink=false)`
+	
+convertit 
+
+```php
+cheeseListings	
+	0	
+		@id	"/api/cheeses/6"
+	1	
+		@id	"/api/cheeses/7"
+```
+
+en 
+
+```php
+cheeseListings:
+	0	"/api/cheeses/6"
+	1	"/api/cheeses/7"
+```
+
 ----------
 
 # API Platform Tutorial
