@@ -38,6 +38,11 @@ cheeseListings:
 
 ----------
 
+### Pour avoir dump() dans le profiler
+
+    composer require symfony/debug-bundle
+
+
 # API Platform Tutorial
 
 Well hi there! This repository holds the code and script
