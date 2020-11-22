@@ -26,7 +26,7 @@ class CheeseListingInputDataTransformer implements DataTransformerInterface
      */
     public function transform($input, string $to, array $context = [])
     {
-        // src/Bridge/Symfony/Validator/Validator.php
+        // vendor/api-platform/core/src/Bridge/Symfony/Validator/Validator.php
         $this->validator->validate($input);
 
         $cheeseListing = $context[AbstractItemNormalizer::OBJECT_TO_POPULATE] ?? null;
