@@ -73,18 +73,11 @@ class CheeseListing
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank()
-     * @Assert\Length(
-     *     min=2,
-     *     max=50,
-     *     maxMessage="Describe your cheese in 50 chars or less"
-     * )
      */
     private $title;
 
     /**
      * @ORM\Column(type="text")
-     * @Assert\NotBlank()
      */
     private $description;
 
@@ -92,7 +85,6 @@ class CheeseListing
      * The price of this delicious cheese, in cents
      *
      * @ORM\Column(type="integer")
-     * @Assert\NotBlank()
      */
     private $price;
 
@@ -109,7 +101,6 @@ class CheeseListing
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="cheeseListings")
      * @ORM\JoinColumn(nullable=false)
-     * @IsValidOwner()
      */
     private $owner;
 
